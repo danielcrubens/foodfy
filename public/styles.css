@@ -27,6 +27,11 @@ h3 {
 }
 a {
   text-decoration: none;
+  color: #444444;
+}
+a:hover{
+  color: #111111;
+  transition: 0.2ms;
 }
 p {
   font-size: 18px;
@@ -48,6 +53,9 @@ header {
 header .container {
   display: flex;
   align-items: center;
+}
+.container img{
+  border-radius: 20px;
 }
 nav img {
   padding-right: 65px;
@@ -119,7 +127,7 @@ footer {
 }
 footer p {
   color: #999999;
-  padding: 23px;
+  padding: 23px 0px 0px;
   text-align: center;
 }
 /*===SOBRE===*/
@@ -182,7 +190,89 @@ footer p {
 .modal-overlay.active {
   opacity: 1;
   visibility: visible;
-} 
+}
+/*== PÁGINA DE DETALHES DAS RECEITAS==*/
+.recipes_details img {
+  border-radius: 15px;
+  font-size: 36px;
+  font-weight: bold;
+}
+.recipes_details_title-container {
+  padding-top: 50px;
+  text-align: center;
+
+}
+.recipes_details_title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.recipes_details_author {
+  color: #7777;
+  font-size: 20px;
+  
+}
+.recipes_details_ingredients_title, .recipes_details_preparation_title {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 50px;
+}
+.recipes_details_ingredients, .recipes_details_preparation{
+font-size: 18px;
+color: #444444;
+line-height: 28px;
+padding-top: 28px;
+padding-left: 20px;
+padding-bottom: 20px;
+
+
+}
+/*.recipes_details_preparation {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 39px;
+}*/
+.recipes_details_additional_information {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 37px;
+}
+.recipes_details_additional_information_description{
+  font-size: 12px;
+  color: #999;
+  padding-top: 20px;
+  line-height: 28px;
+}
+
+.recipes_details_hide-show {
+  font-size: 12px;
+  color: #999;
+  padding-left: 8px;
+  margin-bottom: 3px;
+  cursor: pointer;
+}
+
+/* Show and hidden */
+
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}
+.mostAccessed {
+  font-size: 24px;
+  line-height: 28px;
+  color: var(--font);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
 @media (max-width: 425px) {
   main {
     padding: 5px;

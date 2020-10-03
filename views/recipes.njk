@@ -1,0 +1,68 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+<title>Detalhes das Recita </title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <img src="{{recipe.image}}" alt="">
+  <div class="recipes_details_title-container">
+    <p class="recipes_details_title">{{recipe.title}}</p>
+    <p class="recipes_details_title-author">{{recipe.author}} </p>
+  </div>
+
+  <p class="recipes_details_ingredients-container">
+  <div class="recipes_details_ingredients_title">
+    <p>Ingredientes</p>
+    <div class="recipes_details_hide-show ">
+      Esconder
+    </div>
+  </div>
+
+
+  <div class="recipes_details_ingredients show ">
+    
+      {% for ingredients in recipe.ingredients %}
+      <li>
+        {{ingredients}}
+      </li>
+      {% endfor %}
+    
+  </div>
+
+  <div class="recipes_details_preparation_title  ">
+    <p>Modo de preparo</p>
+    <div class="recipes_details_hide-show ">
+      Esconder
+    </div>
+  </div>
+
+
+  <div class="recipes_details_preparation show">
+    {% for preparation in recipe.preparation %}
+    <li>{{preparation}}</li>
+    {% endfor %}
+  </div>
+
+
+
+
+  <div class="recipes_details_additional_information ">
+    <p>Informações adicionais</p>
+    <div class="recipes_details_hide-show">
+      Esconder
+    </div>
+  </div>
+  <div class="recipes_details_additional_information_description show">
+
+    <p>{{recipe.information}}</p>
+  </div>
+</div>
+</div>
+<footer>
+  <p>Todos os direitos reservados,receita Foodfy</p>
+</footer>
+<script src="/hideShow.js"></script>
+{% endblock %}
