@@ -5,15 +5,21 @@
     </div>
 </div>
 <div class="item">
-    <div>Nome do autor</div>
-    <div>
-        <input type="text" name="author" value="{{recipe.author}}">
-    </div>
-</div>
-<div class="item">
     <div>Imagem da receita</div>
     <div>
         <input type="text" name="image" value="{{recipe.image}}">
+    </div>
+</div>
+<div class="item">
+    <div>Chef</div>
+    <div>
+        <select name="chef">
+            {% for chef in chefsOptions %}
+            <option value="{{chef.id}}" {% if recipe.chef_id == chef.id %} selected="selected" {% endif %}>
+                {{chef.name}}
+            </option>
+            {% endfor %}
+        </select>
     </div>
 </div>
 <div class="item" id="ingredients">

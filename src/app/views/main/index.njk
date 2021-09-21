@@ -3,9 +3,14 @@
 {% block head %}
     <title>Foodfy - As melhores receitas</title>
 {% endblock %}
+{% block search %}
+    <form class="filter-form" action="/" method="GET">
+        <input type="text" name="search" value="{{search}}" placeholder="Buscar uma receita">
+        <button type="submit">Buscar</button>
+    </form>
+{% endblock %}
 
 {% block content %}
-
 <main>
   <section class="container">
     <div class="grid-receita">
@@ -23,10 +28,11 @@
     <h2 class="mostAccessed">Mais acessadas</h2>
  <div class="recipe-container">
             {% for recipe in recipes %}
-                <div class="recipe">
+                <div class="recipe"
+                data-id={{recipe.id}}>
                     <img src="{{recipe.image}}" alt="imagem de {{recipe.title}}">
                     <h3 class="title">{{recipe.title}}</h3>
-                    <p class="author">por {{recipe.author}}</p>
+                    <p class="author">por {{recipe.chef_name}}</p>
                 </div>
             {% endfor %}
         </div>

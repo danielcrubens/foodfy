@@ -4,14 +4,21 @@
     <title>{{recipe.title}} | Foodfy</title>
 {% endblock %}
 
+{% block search %}
+    <form class="filter-form" action="/" method="GET">
+        <input type="text" name="search" value="{{search}}" placeholder="Buscar uma receita">
+        <button type="submit">Buscar</button>
+    </form>
+{% endblock %}
+
 {% block content %}
     <section class="recipe-selected container">
         <img src="{{recipe.image}}" alt="imagem de {{recipe.title}}">
         <div class="title">
             <h1>{{recipe.title}}</h1>
-            <p>por {{recipe.author}}</p>
+            <p>por {{recipe.chef_name}}</p>
         </div>
-        <div class="recipe-wraper">
+        <div class="recipe-wraper recipe-hide">
             <div class="title">
                 <h2>Igredientes</h2>
                 <p class="hide">ESCONDER</p>
@@ -24,7 +31,7 @@
                 </ul>
             </div>
         </div>
-        <div class="recipe-wraper">
+        <div class="recipe-wraper recipe-hide">
             <div class="title">
                 <h2>Modo de preparo</h2>
                 <p class="hide">ESCONDER</p>
@@ -37,7 +44,7 @@
                 </ul>
             </div>
         </div>
-        <div class="recipe-wraper">
+        <div class="recipe-wraper recipe-hide">
             <div class="title">
                 <h2>Informações adicionais</h2>
                 <p class="hide">ESCONDER</p>

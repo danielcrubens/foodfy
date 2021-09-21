@@ -1,8 +1,8 @@
 
 const express = require("express");
 const nunjucks = require("nunjucks");
-const routes = require("./routes");
 const methodOverride = require("method-override");
+const routes = require("./routes");
 
 const server = express();
 
@@ -14,14 +14,11 @@ server.use(routes)
 
 //CONFIGURANDO NUNJUCKS
 server.set("view engine", "njk")
-nunjucks.configure("views", {
+nunjucks.configure("src/app/views", {
     express: server,
     autoescape: false,
     noCache: true
 })
-
-
-
 
 //INICIANDO SERVIDOR
 server.listen(5000, function () {
