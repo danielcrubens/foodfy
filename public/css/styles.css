@@ -445,7 +445,6 @@ form .add {
   color: var(--verde);
   cursor: pointer;
 }
-
 /*CHEFS*/
 
 .chef-container,
@@ -486,7 +485,7 @@ form .add {
 /* RESPONSIVE */
 @media (max-width: 576px) {
   body {
-    /* background: red; */
+    background: blue;
   }
   .container {
     width: 100%;
