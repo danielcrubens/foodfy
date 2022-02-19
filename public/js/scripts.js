@@ -1,4 +1,13 @@
-
+$(document).ready(function () {
+  $("#toggle").click(function () {
+    $(this).toggleClass("active");
+    $("#overlay").toggleClass("open");
+  });
+});
+// ano automatico
+const ano = document.querySelector("#ano");
+const anoAtual = new Date();
+ano.innerHTML = anoAtual.getFullYear();
 
 const currentPage = location.pathname;
 const menuItens = document.querySelectorAll("header .links a");
@@ -77,6 +86,3 @@ const formDelete = document.querySelector("#form-delete");
 if (formDelete) {
   confirmDelete(formDelete);
 }
-
-
-

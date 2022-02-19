@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
     {% block head %}
       <title>Foodfy</title>
     {% endblock %}
@@ -55,15 +55,14 @@
     </header>
     {% block content %}{% endblock %}
     <footer>
-      <p>Todos os direitos reservados, receita Foodfy</p>
+      <p>©<span id="ano"></span> Todos os direitos reservados, receita Foodfy</p>
     </footer>
+    <script src="/js/jquery.min.js"></script>
     <script src="/js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-      $("#toggle").click(function () {
-        $(this).toggleClass("active");
-        $("#overlay").toggleClass("open");
-      });
+   
+
+ 
     </script>
   </body>
 </html>

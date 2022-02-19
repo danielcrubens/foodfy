@@ -1,13 +1,13 @@
 <div class="item">
     <div>Nome da receita</div>
     <div>
-        <input type="text" name="title" value="{{recipe.title}}">
+        <input type="text" name="title" value="{{recipe.title}}"required>
     </div>
 </div>
 <div class="item">
     <div>Imagem da receita</div>
     <div>
-        <input type="text" name="image" value="{{recipe.image}}">
+        <input type="text" name="image" value="{{recipe.image}}"required>
     </div>
 </div>
 <div class="item">
@@ -26,7 +26,7 @@
     <div>Igredientes</div>
     {% for ingredient in recipe.ingredients %}
         <div class="ingredients">
-            <input type="text" name="ingredients[]" value="{{ingredient}}">
+            <input type="text" name="ingredients[]" value="{{ingredient}}"required>
         </div>
     {% else %}
         <div class="ingredients">
@@ -39,7 +39,7 @@
     <div>Modo de preparo</div>
     {% for preparation in recipe.preparation %}
         <div class="steps">
-            <input type="text" name="preparation[]" value="{{preparation}}">
+            <input type="text" name="preparation[]" value="{{preparation}}"required>
         </div>
     {% else %}
         <div class="steps">
@@ -51,6 +51,6 @@
 <div class="item">
     <div>informações adicionais</div>
     <div>
-        <textarea name="information">{{recipe.information}}</textarea>
+        <textarea name="information"required>{{recipe.information}}</textarea>
     </div>
 </div>

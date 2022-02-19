@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="/css/styles.css">
         {% block head %}
             <title>Foodfy</title>
@@ -13,14 +13,15 @@
     <body>
         <header class="header-admin">
             <div class="container">
-                <div>
-                    <a href="/admin/recipes"><img src="/img/logo_admin.png" alt="Foodfy logo">
-                    </a>
+                <div class="img-wraper">
+                    <a href="/"><img src="/img/logo_admin.png" alt="Foodfy logo"> </a>
                 </div>
-            </div>
-            <div class="links">
-                <a href="/admin/recipes">Receitas</a>
-                <a href="/admin/chefs">Chefs</a>
+                <nav class="links admin">
+                    <ul>
+                        <li><a href="/admin/recipes">Receitas</a></li>
+                        <li><a href="/admin/chefs">Chefs</a></li>
+                    </ul>
+                </nav>
             </div>
         </header>
         {% block content %}{% endblock %}
