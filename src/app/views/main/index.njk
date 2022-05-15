@@ -4,10 +4,11 @@
     <title>Foodfy - As melhores receitas</title>
 {% endblock %}
 {% block search %}
-    <form class="filter-form" action="/" method="GET">
+   <form class="filter-form" action="/recipes" method="GET">
         <input type="text" name="search" value="{{search}}" placeholder="Buscar uma receita">
         <button type="submit">Buscar</button>
     </form>
+   {#  {% include "/main/parts/recipe-search.njk" %} #}
 {% endblock %}
 
 {% block content %}
@@ -35,7 +36,8 @@
                     <p class="author">por {{recipe.chef_name}}</p>
                 </div>
             {% endfor %}
-        </div>
+  </div>
+         {% include "main/parts/recipes.njk" %}
   </section>
 
 

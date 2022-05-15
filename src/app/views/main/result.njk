@@ -5,16 +5,17 @@
 {% endblock %}
 
 {% block search %}
-    <form class="filter-form" action="/" method="GET">
+  {#<form class="filter-form" action="/" method="GET">
         <input type="text" name="search" value="{{search}}" placeholder="Buscar uma receita">
         <button type="submit">Buscar</button>
-    </form>
+    </form>#}
+       {% include "main/parts/recipe-search.njk" %}
 {% endblock %}
 
 {% block content %}
     <section class="container">
         <h2>Buscando por "{{search}}"</h2>
-        <div class="recipe-container">
+        {# <div class="recipe-container">
             {% for recipe in recipes %}
             <div class="recipe"
             data-id={{recipe.id}}>
@@ -23,6 +24,8 @@
                 <p>por {{recipe.chef_name}}</p>
             </div>
             {% endfor %}
-        </div>
+        </div> #}
+          {% include "main/parts/recipes.njk" %} 
+        {% include "main/parts/pagination.njk" %}
     </section>
 {% endblock %}

@@ -17,12 +17,14 @@
 }
 html {
   --cinza: #444444;
+  --cinza-claro: #999;
   --preto: #111111;
   --marron: #953930;
   --pink: #fbdfdb;
   --branco: #ffffff;
   --verde: #38d430;
   --azulescuro: #282a36;
+  --vermelho:#dc4747;
 }
 h2 {
   font-size: 24px;
@@ -38,10 +40,10 @@ a {
   text-decoration: none;
   color: var(--cinza);
 }
-a:hover {
+/* a:hover {
   color: var(--preto);
   transition: 0.2ms;
-}
+} */
 p {
   font-size: 18px;
   color: var(--cinza);
@@ -382,7 +384,7 @@ form button,
 }
 button.btn-delete {
   margin-right: 8px;
-  background-color: #dc4747;
+  background-color: var(--vermelho);
 }
 /*FORMS*/
 form .item {
@@ -417,7 +419,10 @@ form textarea {
 form .add {
   font-weight: bold;
   color: var(--verde);
-  cursor: pointer;
+}
+form .remove{
+  font-weight: bold;
+  color: var(--vermelho);
 }
 /*CHEFS*/
 
@@ -445,7 +450,10 @@ form .add {
 .chef a {
   margin-top: 0;
 }
-.chef-img img {
+.title.chef-title h1 {
+  margin-top: 30px;
+}
+.chef-avatar img {
   display: block;
   margin: 56px auto 0;
   width: 200px;
@@ -454,7 +462,7 @@ form .add {
 }
 /* PHOTOS ULPLOAD */
 
-form .item #photos-upload {
+/* form .item #photos-upload {
   position: relative;
   display: block;
   overflow: hidden;
@@ -524,16 +532,222 @@ form .item #photos-preview img {
   opacity: 1;
 }
 
+ */
 
 
 
+ form .fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+}
+
+form .item {
+  margin-top: 24px;
+}
+
+form .item:last-of-type {
+  margin-bottom: 32px;
+}
+
+.item div:nth-of-type(1) {
+  font-weight: bold;
+}
+
+form .item #photos-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+form .item #photos-upload, 
+form .item #photos-preview .photo img {
+  position: relative;
+  display: block;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form #photos-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+form #photos-upload i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--cinza-claro);
+  transition: .2s;
+}
+
+form #photos-input:hover + i {
+  color: var(--color-purple);
+}
+
+form #photos-preview {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+form #photos-preview .photo {
+  position: relative;
+}
+
+form #photos-preview .photo img {
+  object-fit: cover;
+}
+
+form #photos-preview .photo i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 48px;
+  font-weight: bold;
+  color: #f00;
+  background-color: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  transition: .2s;
+  cursor: pointer;
+}
+
+form #photos-preview .photo i:hover {
+  opacity: 1;
+}
+
+form textarea {
+  display: block;
+  height: 256px;
+  resize: none;
+}
+
+form .options {
+  display: flex;
+}
+
+form .options a {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-right: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form .options a i {
+  margin-right: 4px;
+}
 
 
+form #photos-preview {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
 
+/* GALLERY */
+.selected .gallery {
+  width: 100%;
+}
 
+.gallery .highlight > img {
+  margin-top: 20px;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: zoom-in;
+}
 
+.gallery .gallery-preview {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
 
+.gallery .gallery-preview img {
+  margin-left: 10px;
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  opacity: .6;
+  transition: .2s;
+  cursor: pointer;
+}
 
+.gallery .gallery-preview img:hover,
+.gallery .gallery-preview img.active-image {
+  opacity: 1;
+}
+
+/* ==============================
+==== LIGHTBOX RECIPE GALLERY ====
+============================== */
+
+.gallery .highlight .lightbox-target {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  opacity: 1;
+  transition: opacity .4s;
+  overflow: hidden;
+}
+
+.gallery .highlight .lightbox-target img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  width: 90%;
+  height: 90%;
+  background-color: #fff;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, .3);
+}
+
+.gallery .highlight a.lightbox-close {
+  position: absolute;
+  top: -80px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  color: #f00;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: .4s;
+}
 
 /* RESPONSIVE */
 @media (max-width: 992px) {
