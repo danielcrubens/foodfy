@@ -41,10 +41,10 @@ module.exports = {
         try {
             const keys = Object.keys(req.body);
 
-            keys.forEach(key => {
+            for (let key of keys) {
                 if (req.body[key] == '')
                     return res.send('Por favor, preencha todos os campos.');
-            });
+            };
 
             if (req.files.length == 0)
                 return res.send('Por favor, envie pelo menos uma imagem.');
@@ -115,10 +115,10 @@ module.exports = {
         try {
             const keys = Object.keys(req.body);
 
-            keys.forEach(key => {
-                if (req.body[key] == '' && key != 'removed_files')
+            for (let key of keys) {
+                if (req.body[key] == '')
                     return res.send('Por favor, preencha todos os campos.');
-            });
+            };
 
             if (req.files.length != 0) {
                 const newFilesPromise = req.files.map(async file => {
@@ -157,7 +157,16 @@ module.exports = {
     },
     async delete(req, res) {
         try {
+            let results = await Recipe.files(req.body.id);
+            const files = results.rows;
+            const deletedFilesPromise = files.map(file => {
+                RecipeFile.delete(file.file_id);
+                File.delete(file.file_id);
+            });
+
+            await Promise.all(deletedFilesPromise);
             await Recipe.delete(req.body.id);
+
             return res.redirect('/admin');
         } catch (err) {
             console.error(err);
