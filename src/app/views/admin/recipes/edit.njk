@@ -1,4 +1,4 @@
-{% extends 'layouts/admin.njk' %}
+{% extends 'templates/layouts/admin.njk' %}
 
 {% block head %}
     <title>Editar Receita | Foodfy</title>
@@ -6,22 +6,25 @@
 
 {% block content %}
     <section class="container">
-        <form action="/admin/recipes?_method=PUT" method="POST"enctype="multipart/form-data">
+        <form action="/admin/recipes?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="title">
                 <h2>Editar receita</h2>
+
                 <div>
                     <button class="btn-delete" type="submit" form="form-delete">Deletar</button>
                     <button type="submit">Salvar receita</button>
                 </div>
             </div>
-           {#{% include "admin/recipes/fields.njk" %}#}
-              {% include "admin/parts/recipes-fields.njk" %}
+
+            {% include "templates/includes/recipes-fields.njk" %}
+
             <input type="hidden" name="id" value={{recipe.id}}>
         </form>
+
         <form id="form-delete" action="/admin/recipes?_method=DELETE" method="POST">
             <input type="hidden" name="id" value={{recipe.id}}>
         </form>
     </section>
-   {#{% include "admin/recipes/addFields.njk" %}#}
-   {% include "admin/parts/addFields.njk" %}
+
+    {% include "templates/includes/recipes-addFields.njk" %}
 {% endblock %}

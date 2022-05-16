@@ -1,4 +1,4 @@
-{% extends 'layouts/admin.njk' %}
+{% extends 'templates/layouts/admin.njk' %}
 
 {% block head %}
     <title>Criar Receita | Foodfy</title>
@@ -6,16 +6,15 @@
 
 {% block content %}
     <section class="container">
-        <form action="/admin/recipes" method="POST"enctype="multipart/form-data">
+        <form action="/admin/recipes" method="POST" enctype="multipart/form-data">
             <div class="title">
                 <h2>Nova receita</h2>
-                
                 <button type="submit">Salvar receita</button>
             </div>
-            {#{% include "admin/recipes/fields.njk" %}#}
-            {% include "admin/parts/recipes-fields.njk" %}
+
+            {% include "templates/includes/recipes-fields.njk" %}
         </form>
     </section>
-    {#{% include "admin/recipes/addFields.njk" %}#}
-       {% include "admin/parts/addFields.njk" %}
+
+    {% include "templates/includes/recipes-addFields.njk" %}
 {% endblock %}

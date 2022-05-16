@@ -1,26 +1,16 @@
-{% extends "layouts/main.njk" %}
+{% extends "templates/layouts/main.njk" %}
+
 {% block head %}
     <title>Receitas | Foodfy</title>
 {% endblock %}
+
 {% block search %}
-   {#  <form class="filter-form" action="/" method="GET">
-        <input type="text" name="search" value="{{ search }}" placeholder="Buscar uma receita">
-            <button type="submit">Buscar</button>
-        </form> #}
-        {# {% include "main/parts/recipe-search.njk" %}  #}
-    {% endblock %}
-    {% block content %}
-        <section class="container">
-        {#     <div class="recipe-container">
-                {% for recipe in recipes %}
-                    <div class="recipe" data-id={{ recipe.id }}>
-                        <img src="{{ recipe.image }}" alt="imagem de {{ recipe.title }}">
-                            <h3 class="title">{{ recipe.title }}</h3>
-                            <p>por {{ recipe.chef_name }}</p>
-                        </div>
-                    {% endfor %}
-                </div> #}
-                {% include "main/parts/recipes.njk" %}
-                {% include "main/parts/pagination.njk" %} 
-            </section>
-        {% endblock %}
+    {% include "templates/includes/search.njk" %}
+{% endblock %}
+
+{% block content %}
+    <section class="container">
+        {% include "templates/includes/recipes-list.njk" %} 
+        {% include "templates/includes/pagination.njk" %}
+    </section>
+{% endblock %}
