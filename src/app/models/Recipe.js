@@ -85,6 +85,7 @@ module.exports = {
                 SELECT count(*) FROM recipes
                 ${filterQuery}
             ) AS total`;
+
             orderBy = 'ORDER BY recipes.updated_at DESC'
         }
 
