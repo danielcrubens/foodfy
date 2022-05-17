@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
-        <link rel="stylesheet" href="/styles/admin/index.css">
-        {% include "templates/includes/head-content.njk" %}
-
+        <link rel="stylesheet" href="/styles/admin/index.css"> {% include "templates/includes/head-content.njk" %}
         {% block head %}
             <title>Foodfy</title>
         {% endblock %}
     </head>
-
     <body>
         <header class="header-admin">
             <div class="container">
                 {% include "templates/includes/links-admin.njk" %}
             </div>
         </header>
-
-        {% block content %}
-        {% endblock %}
-
+        {% include "templates/includes/messages.njk" %}
+        {% block content %}{% endblock %}
         <script src="/scripts/index.js"></script>
         <script src="/scripts/photosUpload.js"></script>
     </body>
