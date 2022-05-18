@@ -38,6 +38,7 @@
         <input
             type="text"
             name="title"
+            required
             value="{{recipe.title}}"
         >
     </div>
@@ -46,7 +47,7 @@
 <div class="item">
     <div>Chef</div>
     <div>
-        <select name="chef">
+        <select name="chef" required>
             <option disabled selected value>Selecione um chef</option>
             {% for chef in chefsOptions %}
                 <option
@@ -67,6 +68,7 @@
             <input
                 type="text"
                 name="ingredients[]"
+                required
                 value="{{ingredient}}"
             >
         </div>
@@ -75,15 +77,13 @@
             <input
                 type="text"
                 name="ingredients[]"
+                required
             >
         </div>
     {% endfor %}
 </div>
 
-<div class="options">
-    <a class="add-ingredient add"><i class="material-icons">add</i>Adicionar</a>
-    <a class="remove-ingredient remove"><i class="material-icons">delete</i>Remover</a>
-</div>
+<a class="add-ingredient add">Adicionar novo ingrediente</a>
 
 <div class="item" id="step">
     <div>Modo de preparo</div>
@@ -92,6 +92,7 @@
             <input
                 type="text"
                 name="preparation[]"
+                required
                 value="{{preparation}}"
             >
         </div>
@@ -100,19 +101,17 @@
             <input
                 type="text"
                 name="preparation[]"
+                required
             >
         </div>
     {% endfor %}
 </div>
 
-<div class="options">
-    <a class="add-step add"><i class="material-icons">add</i>Adicionar</a>
-    <a class="remove-step remove"><i class="material-icons">delete</i>Remover</a>
-</div>
+<a class="add-step add">Adicionar novo passo</a>
 
 <div class="item">
     <div>informações adicionais</div>
     <div>
-        <textarea name="information">{{recipe.information}}</textarea>
+        <textarea name="information" required>{{recipe.information}}</textarea>
     </div>
 </div>
