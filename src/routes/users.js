@@ -1,37 +1,93 @@
-const express = require('express');
-const routes = express.Router();
+const User = require('../models/User');
 
-const SessionController = require('../app/controllers/SessionController');
-const ProfileController = require('../app/controllers/ProfileController');
-const UserController = require('../app/controllers/UserController');
+function checkAllFields(body) {
+    const keys = Object.keys(body);
 
-const UserValidator = require('../app/validators/user');
-const ProfileValidator = require('../app/validators/profile');
-const SessionValidator = require('../app/validators/session');
+    for (let key of keys) {
+        if (body[key] == '') {
+            return {
+                user: body,
+                error: 'Por favor, preencha todos os campos!'
+            };
+        }
+    }
+}
 
-const { onlyUsers } = require('../app/middlewares/sessions');
+async function show(req, res, next) {
+    const { userId: id } = req.session;
+    const user = await User.findOne({ where: { id } });
 
-// Login/logout //
-routes.get('/login', SessionController.loginForm);
-routes.post('/login', SessionValidator.login, SessionController.login)
-routes.post('/logout', SessionController.logout);
+    if (!user) return res.render('users/register', {
+        error: 'Usuário não encontrado!'
+    });
 
-// Profile //
-routes.get('/profile', onlyUsers, ProfileValidator.show, ProfileController.index);
-routes.put('/profile', onlyUsers, ProfileValidator.update, ProfileController.update);
+    req.user = user;
 
-// Reset Password //
-routes.get('/forgot-password', SessionController.forgotForm);
-routes.get('/password-reset', SessionController.resetForm);
+    next();
+}
 
-// User register //
-routes.get('/register', onlyUsers, UserController.registerForm);
-routes.post('/register', onlyUsers, UserValidator.post, UserController.post);
+async function post(req, res, next) {
+    try {
+        // check if has all fields //
+        const fillAllFields = checkAllFields(req.body);
+        if (fillAllFields) return res.render('users/register', fillAllFields);
 
-// User management //
-routes.get('/', onlyUsers, UserController.list);
-routes.get('/:id/edit', onlyUsers, UserValidator.edit, UserController.edit);
-routes.put('/', onlyUsers, UserValidator.update, UserController.update);
-routes.delete('/', onlyUsers, UserController.delete);
+        // check if user alread exists //
+        const { email } = req.body;
+        const user = await User.findOne({ where: { email } });
+        if (user) return res.render('users/register', {
+            user: req.body,
+            error: 'Este usuário já está cadastrado!'
+        });
 
-module.exports = routes;
+        // check email format //
+        const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (!email.match(mailFormat)) return res.render('users/register', {
+            user: req.body,
+            error: 'Formato de email inválido!'
+        });
+
+        next();
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+async function edit(req, res, next) {
+    const { id } = req.params;
+    const user = await User.findOne({ where: { id } });
+
+    if (!user) return res.render('users/register', {
+        error: 'Usuário não encontrado!'
+    });
+
+    req.user = user;
+
+    next();
+}
+
+async function update(req, res, next) {
+    const fillAllFields = checkAllFields(req.body);
+    if (fillAllFields) return res.render('users/edit', fillAllFields);
+
+    const { userId: id } = req.session;
+    const user = await User.findOne({ where: { id } });
+    const { email } = req.body;
+
+    if (email != user.email) {
+        const isNotAvaliable = await User.findOne({ where: { email } });
+        if (isNotAvaliable) return res.render('users/edit', {
+            user: req.body,
+            error: 'Este email já está cadastrado!'
+        });
+    }
+
+    next();
+}
+
+module.exports = {
+    show,
+    post,
+    edit,
+    update
+};
