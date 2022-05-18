@@ -92,3 +92,8 @@ const Validate = {
         };
     }
 }
+const formError = document.querySelector('.error.messages');
+if (formError) {
+    const fields = document.querySelectorAll('input');
+    fields.forEach(field => field.style.borderColor = '#ff3131');
+}
