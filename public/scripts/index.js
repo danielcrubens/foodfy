@@ -74,7 +74,6 @@ const Validate = {
         div.innerText = error;
         input.parentNode.appendChild(div);
 
-        input.focus();
     },
     clearErrors(input) {
         const errorDiv = input.parentNode.querySelector('.error');
