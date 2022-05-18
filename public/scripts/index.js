@@ -1,6 +1,6 @@
 // Active menu //
 const currentPage = location.pathname;
-const menuItens = document.querySelectorAll('header .links a');
+const menuItens = document.querySelectorAll('header .links-wrapper > li > a');
 
 menuItens.forEach(item => {
     if (currentPage.includes(item.getAttribute('href'))) {
@@ -13,7 +13,6 @@ function confirmDelete(formDelete) {
     formDelete.addEventListener('submit', event => {
         const totalRecipes = document.querySelector('.total-recipes');
         const confirmation = confirm('Tem certeza que deseja deletar? Essa operação não poderá ser desfeita.');
-
         if (!confirmation) event.preventDefault();
 
         // Check if the chef has recipes //
@@ -70,14 +69,12 @@ const Validate = {
         let results = Validate[func](input.value);
 
         if (results.error) Validate.displayError(input, results.error);
-
     },
     displayError(input, error) {
         const div = document.createElement('div');
         div.classList.add('error');
         div.innerText = error;
         input.parentNode.appendChild(div);
-
     },
     clearErrors(input) {
         const errorDiv = input.parentNode.querySelector('.error');
@@ -95,6 +92,7 @@ const Validate = {
         };
     }
 }
+
 const formError = document.querySelector('.error.messages');
 if (formError) {
     const fields = document.querySelectorAll('input');
