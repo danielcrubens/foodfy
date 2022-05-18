@@ -2,30 +2,30 @@
 
 {% block head %}
     <link rel="stylesheet" href="/styles/admin/forms.css">
-    <title>Editar Chef | Foodfy</title>
+    <title>Editar Receita | Foodfy</title>
 {% endblock %}
 
 {% block content %}
     <section class="container">
-        <form action="/admin/chefs?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/admin/recipes?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="title">
-                <h2>Editar chef</h2>
+                <h2>Editar receita</h2>
 
                 <div>
                     <button class="btn btn-delete" type="submit" form="form-delete">Deletar</button>
-                    <button class="btn" type="submit">Salvar chef</button>
+                    <button class="btn" type="submit" onclick="Validate.allFields(event)">Salvar receita</button>
                 </div>
             </div>
 
-            {% include "templates/includes/chefs/chefs-fields.njk" %}
+            {% include "templates/includes/recipes/recipes-fields.njk" %}
 
-            <input type="hidden" name="id" value={{chef.id}}>
+            <input type="hidden" name="id" value={{recipe.id}}>
         </form>
 
-        <form id="form-delete" action="/admin/chefs?_method=DELETE" method="POST">
-            <div class="total-recipes" data-total={{chef.total_recipes}}></div>
-            <input type="hidden" name="id" value={{chef.id}}>
-            <input type="hidden" name="file_id" value="{{chef.file.id}}">
+        <form id="form-delete" action="/admin/recipes?_method=DELETE" method="POST">
+            <input type="hidden" name="id" value={{recipe.id}}>
         </form>
     </section>
+
+    {% include "templates/includes/recipes/recipes-addFields.njk" %}
 {% endblock %}
