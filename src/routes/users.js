@@ -13,6 +13,9 @@ routes.get('/login', SessionController.loginForm);
 routes.post('/login', SessionValidator.login, SessionController.login)
 routes.post('/logout', SessionController.logout);
 
+// Reset Password //
+routes.get('/forgot-password', SessionController.forgotForm);
+routes.get('/password-reset', SessionController.resetForm);
 
 // User register //
 routes.get('/register', UserController.registerForm);
