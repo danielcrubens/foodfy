@@ -1,0 +1,26 @@
+section.session.container {
+	margin-bottom: auto;
+	max-width: 500px;
+	.title {
+		justify-content: center;
+	}
+	.footer {
+		margin-top: 35px;
+		ul {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			li.button-wrapper {
+				width: 100%;
+				text-align: end;
+			}
+			a {
+				font-weight: bold;
+				color: #969696;
+				&:hover {
+					color: var(--color-purple);
+				}
+			}
+		}
+	}
+}

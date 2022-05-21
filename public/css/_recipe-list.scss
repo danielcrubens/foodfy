@@ -1,0 +1,49 @@
+.recipe-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 20px;
+	margin: 24px 0;
+}
+.recipe {
+	cursor: pointer;
+	img {
+		width: 100%;
+		height: 140px;
+		object-fit: cover;
+		border-radius: 15px;
+	}
+	h3 {
+		margin: 5px 10px;
+		font-size: 18px;
+		font-weight: normal;
+	}
+	p {
+		margin: 0 10px;
+		font-size: 14px;
+		color: var(--color-gray);
+	}
+}
+.admin {
+	.recipe-container {
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
+	}
+	.recipe {
+		display: grid;
+		grid-template-columns: 40% 60%;
+		gap: 8px;
+		cursor: default;
+		img {
+			height: 80px;
+			object-fit: cover;
+			border-radius: 8px;
+		}
+		a {
+			display: inline-block;
+			margin: 10px;
+			font-size: 14px;
+			font-weight: bold;
+			color: var(--color-purple);
+		}
+	}
+}

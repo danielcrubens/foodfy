@@ -1,0 +1,139 @@
+form {
+	.fields {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0 40px;
+	}
+	.item {
+		margin-top: 24px;
+		&:last-of-type {
+			margin-bottom: 32px;
+		}
+		#photos-container {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			gap: 6px;
+			margin: 10px 0;
+		}
+		#photos-upload {
+			position: relative;
+			display: block;
+			width: 150px;
+			height: 150px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+		}
+		#photos-preview {
+			.photo {
+				img {
+					position: relative;
+					display: block;
+					width: 150px;
+					height: 150px;
+					border: 1px solid #ddd;
+					border-radius: 4px;
+				}
+			}
+		}
+	}
+	#photos-input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		overflow: hidden;
+		cursor: pointer;
+		&:hover {
+			+ {
+				i {
+					color: var(--color-purple);
+				}
+			}
+		}
+	}
+	#photos-upload {
+		i {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			font-size: 48px;
+			font-weight: bold;
+			color: var(--color-gray);
+			transition: .2s;
+		}
+	}
+	#photos-preview {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 6px;
+		.photo {
+			position: relative;
+			img {
+				object-fit: cover;
+			}
+			i {
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				font-size: 48px;
+				font-weight: bold;
+				color: #f00;
+				background-color: rgba(255, 255, 255, 0.8);
+				opacity: 0;
+				transition: .2s;
+				cursor: pointer;
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	textarea {
+		display: block;
+		height: 256px;
+		resize: none;
+	}
+	.options {
+		display: flex;
+		a {
+			display: flex;
+			align-items: center;
+			margin-top: 10px;
+			margin-right: 20px;
+			font-weight: bold;
+			cursor: pointer;
+			i {
+				margin-right: 4px;
+			}
+		}
+	}
+	a.add {
+		color: var(--color-purple);
+		i {
+			color: var(--color-purple);
+		}
+	}
+	a.remove {
+		color: var(--color-danger-red);
+		i {
+			color: var(--color-danger-red);
+		}
+	}
+}
+.item {
+	div {
+		&:nth-of-type(1) {
+			font-weight: bold;
+		}
+	}
+}

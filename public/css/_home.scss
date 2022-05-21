@@ -1,0 +1,23 @@
+/* HOME */
+header {
+	.links {
+		a {
+			&:hover {
+				font-weight: bold;
+			}
+		}
+	}
+	.container {
+		.filter-form {
+			display: grid;
+			grid-template-columns: 248px auto;
+			justify-self: end;
+			input {
+				margin: 0;
+			}
+			button {
+				min-width: 96px;
+			}
+		}
+	}
+}

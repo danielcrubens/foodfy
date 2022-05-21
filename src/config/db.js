@@ -3,6 +3,6 @@ module.exports = new Pool({
   user: "postgres",
   password: "root",
   host: "localhost",
-  port: "5432",
-  database: "foodfy",
+  port: 5432,
+  database: "teste",
 });
