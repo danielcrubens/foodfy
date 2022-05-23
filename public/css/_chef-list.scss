@@ -33,7 +33,7 @@
 .chef p {
     margin: 0 20px;
     font-size: 14px;
-    color: var(--color-gray);
+    color:$color-gray;
 }
 
 .chef a {
@@ -41,5 +41,5 @@
     margin: 0 20px;
     font-size: 14px;
     font-weight: bold;
-    color: var(--color-purple);
+    color: $dark-green;
 }

@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 52px;
-    margin-top: 72px
+    margin-top: 72px;
 }
 
 .users-container .user h3 {
@@ -12,7 +12,7 @@
 .users-container .user p {
     margin-top: 4px;
     font-size: 14px;
-    color: var(--color-gray);
+    color: $color-gray;
 }
 
 .user .options {
@@ -23,12 +23,12 @@
 .user .options a {
     margin-right: 16px;
     font-weight: bold;
-    color: var(--color-purple);
+    color: $dark-green;
 }
 
 .user .options button {
     font-weight: bold;
-    color: var(--color-danger-red);
+    color: $color-danger-red;
     background-color: transparent;
     cursor: pointer;
 }

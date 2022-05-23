@@ -51,15 +51,15 @@
 		a.lightbox-close {
 			position: absolute;
 			top: -80px;
-			right: 0;
+			right: 20px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 50px;
-			height: 50px;
+			width: 30px;
+			height: 30px;
 			color: #f00;
 			background-color: #fff;
-			border-radius: 50%;
+			border-radius: 5%;
 			transition: .4s;
 		}
 	}
@@ -97,17 +97,17 @@
 	}
 	p.hide {
 		font-size: 12px;
-		color: var(--color-light-gray);
+		color: $color-light-gray;
 		cursor: pointer;
 	}
 	.content {
 		font-size: 18px;
 		line-height: 28px;
-		color: var(--color-dark-gray);
+		color: $color-dark-gray;
 		li {
 			font-size: 18px;
 			line-height: 28px;
-			color: var(--color-dark-gray);
+			color: $color-dark-gray;
 		}
 	}
 }

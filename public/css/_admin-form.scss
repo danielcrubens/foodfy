@@ -50,7 +50,7 @@ form {
 		&:hover {
 			+ {
 				i {
-					color: var(--color-purple);
+					color: $dark-green;
 				}
 			}
 		}
@@ -63,7 +63,7 @@ form {
 			height: 100%;
 			font-size: 48px;
 			font-weight: bold;
-			color: var(--color-gray);
+			color: $color-gray;
 			transition: .2s;
 		}
 	}
@@ -118,15 +118,15 @@ form {
 		}
 	}
 	a.add {
-		color: var(--color-purple);
+		color: $dark-green;
 		i {
-			color: var(--color-purple);
+			color: $dark-green;
 		}
 	}
 	a.remove {
-		color: var(--color-danger-red);
+		color: red;
 		i {
-			color: var(--color-danger-red);
+			color: red;
 		}
 	}
 }

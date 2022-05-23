@@ -1,37 +1,39 @@
+$black: #111;
+$dark-green: #009688;
+$color-gray: #777;
+$color-light-gray: #999;
+$color-dark-gray: #444;
+$color-white-paper: #f5f5f5;
+$color-button-gray: #a8a8a8;
+$color-button-gray-dark: #909090;
+$color-danger-red: #dc4747;
+$color-danger-red-dark: #c53e3e;
+$color-success-green: #01b12a;
+
+
+
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Roboto", sans-serif;
+	text-decoration: none;
+	color: $black;
+	list-style: none;
+	border: none;
+	outline: none;
+	::selection {
+		color:$color-white-paper;
+		background:$dark-green;
+	  }
+}
 @keyframes hidemessage {
 	to {
 		right: 0;
 		opacity: 0;
 		visibility: hidden;
 	}
-}
-/* =================
-==== PAGINATION ==== 
-================= */
-:root {
-	--color-default-black: #111;
-	--color-gray: #777;
-	--color-light-gray: #999;
-	--color-dark-gray: #444;
-	--color-white-paper: #f5f5f5;
-	--color-purple: #6558C3;
-	--color-purple-dark: #5449a3;
-	--color-button-gray: #a8a8a8;
-	--color-button-gray-dark: #909090;
-	--color-danger-red: #dc4747;
-	--color-danger-red-dark: #c53e3e;
-	--color-success-green: #01B12A;
-}
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	font-family: 'Roboto', sans-serif;
-	text-decoration: none;
-	color: var(--color-default-black);
-	list-style: none;
-	border: none;
-	outline: none;
 }
 body {
 	display: flex;
@@ -65,7 +67,7 @@ header {
 		a {
 			position: relative;
 			font-size: 16px;
-			transition: .2s;
+			transition: 0.2s;
 		}
 	}
 }
@@ -73,20 +75,16 @@ header {
 	a {
 		&::after {
 			content: "";
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			width: 100%;
+			display: block;
+			width: 0%;
 			height: 2px;
-			background-color: var(--color-default-black);
-			opacity: 0;
-			border-radius: 10px;
-			transition: all .2s ease;
+			background-color: $dark-green;
+			transition: width 300ms ease-in-out;
 		}
 		&:hover {
 			&::after {
-				opacity: 1;
-				bottom: -6px;
+				width: 100%;
+				transition: width 300ms ease-in-out;
 			}
 		}
 	}
@@ -109,10 +107,10 @@ header {
 		p {
 			margin: 0;
 			font-size: 20px;
-			color: var(--color-gray);
+			color: $color-gray;
 		}
 	}
-	>.title {
+	> .title {
 		&:first-child {
 			display: flex;
 			justify-content: space-between;
@@ -122,7 +120,7 @@ header {
 	}
 }
 .admin {
-	>.title {
+	> .title {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -211,25 +209,26 @@ select {
 	line-height: 26px;
 	font-weight: bold;
 	text-align: center;
-	color: var(--color-white-paper);
-	background-color: var(--color-purple);
+	color: $color-white-paper;
+	background-color: $dark-green;
 	border-radius: 4px;
-	transition: .2s;
+	transition: 0.2s;
 	cursor: pointer;
 	&:hover {
-		background-color: var(--color-purple-dark);
+		-webkit-filter: brightness(0.9);
+		filter: brightness(0.9);
 	}
 }
 .btn.cancel {
-	background-color: var(--color-button-gray);
+	background-color: $color-button-gray;
 	&:hover {
-		background-color: var(--color-button-gray-dark);
+		background-color: $color-button-gray-dark;
 	}
 }
 button.btn-delete {
-	background-color: var(--color-danger-red);
+	background-color: $color-danger-red;
 	&:hover {
-		background-color: var(--color-danger-red-dark);
+		background-color: $color-danger-red-dark;
 	}
 }
 .item {
@@ -237,31 +236,27 @@ button.btn-delete {
 		padding: 4px 8px;
 		margin-top: 5px;
 		text-align: center;
-		color: var(--color-white-paper);
-		background-color: var(--color-danger-red);
+		color: $color-white-paper;
+		background-color: $color-danger-red;
 		border-radius: 4px;
 	}
 }
 .messages {
-	position: fixed;
-	top: 16px;
-	right: 16px;
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	padding: 0 16px;
-	width: 344px;
-	height: 135px;
-	color: #fff;
-	border-radius: 4px;
+	padding: 16px;
+	position: absolute;
+	width: 100%;
+	color: #ffff;
+	top: 0;
 	opacity: 1;
-	animation: hidemessage .4s 5s ease-out forwards;
+	animation: hidemessage 0.4s 5s ease-out forwards;
 }
 .messages.error {
-	background-color: var(--color-danger-red);
+	background-color: $color-danger-red;
 }
 .messages.success {
-	background-color: var(--color-success-green);
+	background-color: $color-success-green;
 }
 .pagination {
 	margin: auto 0 32px;
@@ -269,21 +264,21 @@ button.btn-delete {
 	a {
 		padding: 4px 8px;
 		border-radius: 4px;
-		border: 2px solid var(--color-purple);
+		border: 2px solid $dark-green;
 		margin-right: 16px;
-		transition: .2s;
+		transition: 0.2s;
 		&:hover {
-			color: var(--color-white-paper);
-			background-color: var(--color-purple);
+			color: $color-white-paper;
+			background-color: $dark-green;
 		}
 	}
 	span {
 		margin-right: 16px;
-		transition: .2s;
+		transition: 0.2s;
 	}
 	a.active {
-		background-color: var(--color-purple);
-		color: var(--color-white-paper);
+		background-color: $dark-green;
+		color: $color-white-paper;
 	}
 }
 
@@ -292,7 +287,7 @@ section.banner {
 	grid-template-columns: 2fr 1fr;
 	padding-top: 60px;
 	max-height: 366px;
-	background-color: #fbdfdb;
+	background-color: #e3e5dd;
 	border-radius: 30px;
 }
 .banner-content {
@@ -312,12 +307,11 @@ section.most-popular {
 	margin-bottom: auto;
 }
 footer {
-	background-color: #eee;
+	background-color: $black;
 	p {
 		margin: 0;
 		padding: 23px;
 		text-align: center;
-		color: var(--color-light-gray);
+		color: $color-light-gray;
 	}
 }
-

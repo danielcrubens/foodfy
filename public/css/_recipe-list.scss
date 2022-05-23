@@ -20,7 +20,7 @@
 	p {
 		margin: 0 10px;
 		font-size: 14px;
-		color: var(--color-gray);
+		color: $color-gray;
 	}
 }
 .admin {
@@ -43,7 +43,7 @@
 			margin: 10px;
 			font-size: 14px;
 			font-weight: bold;
-			color: var(--color-purple);
+			color: $dark-green;
 		}
 	}
 }

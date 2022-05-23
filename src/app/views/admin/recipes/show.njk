@@ -1,13 +1,11 @@
 {% extends 'templates/layouts/admin.njk' %}
-{% import "templates/macros/chef-content.njk" as chefContent %}
+{% import "templates/macros/recipe-content.njk" as recipeContent %}
 
 {% block head %}
     <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/main.css">
-
-    <title>{{chef.name}} | Foodfy</title>
+    <title>Receita: {{recipe.title}} | Foodfy</title>
 {% endblock %}
 
 {% block content %}
-    {{ chefContent.render(chef, session, "admin") }}
+    {{ recipeContent.render(recipe, "", session, "admin") }}
 {% endblock %}
