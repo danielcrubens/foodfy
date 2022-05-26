@@ -18,7 +18,7 @@ function createFiles(num, placeholder) {
     return files;
 }
 
-let totalUsers = 6,
+let totalUsers = 4,
     totalChefs = 8,
     totalRecipes = 9,
     usersId,
@@ -26,7 +26,7 @@ let totalUsers = 6,
 
 async function createUsers() {
     const users = [];
-    const password = await hash('rocket', 8);
+    const password = await hash('foodfy', 8);
 
     while (users.length < totalUsers) {
         users.push({
